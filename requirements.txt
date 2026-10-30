@@ -1,0 +1,44 @@
+
+# Core LangChain
+langchain
+langchain-core
+langchain-community
+langchain-text-splitters
+
+# Vector Database
+langchain-chroma
+chromadb
+
+# Embeddings and Reranking
+langchain-huggingface
+sentence-transformers
+
+# Sparse Retrieval (BM25)
+rank-bm25
+
+# LLM Integration
+langchain-groq
+groq
+
+# PDF Processing
+pypdf
+
+# Backend API
+fastapi
+uvicorn[standard]
+python-multipart
+
+# Frontend
+streamlit
+requests
+
+# Environment Variables
+python-dotenv
+
+# Data Processing
+numpy
+pandas
+
+# Evaluation and Testing
+scikit-learn
+pytest
