@@ -32,7 +32,7 @@ def reciprocal_rank_fusion(dense_results, sparse_results, rrf_k =60):
     return [documents[chunk_id] for chunk_id in ranked_ids]
 
 
-def hybrid_search(query, chunks, bm25, dense_k=10, sparse_k=10, top_k=5):
+def hybrid_search(query, chunks, bm25, dense_k=10, sparse_k=10, top_k=5, document_id=None):
     
     if not query.strip():
         raise ValueError("Query cannot be empty.")
@@ -42,7 +42,8 @@ def hybrid_search(query, chunks, bm25, dense_k=10, sparse_k=10, top_k=5):
 
     dense_results = dense_search(
         query=query,
-        k = dense_k
+        k = dense_k,
+        document_id=document_id
     )
 
     sparse_results =  sparse_search(

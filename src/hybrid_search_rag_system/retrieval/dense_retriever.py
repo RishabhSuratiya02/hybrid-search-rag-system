@@ -42,14 +42,24 @@ def add_documents(chunks):
     return ids
 
 
-def dense_search(query, k = DENSE_RETRIEVAL_K):
+
+def dense_search(query, k=DENSE_RETRIEVAL_K, document_id=None):
 
     if not query.strip():
         raise ValueError("Query cannot be empty.")
 
+    if k <= 0:
+        raise ValueError("k must be positive.")
+
+    search_filter = None
+
+    if document_id:
+        search_filter = {"document_id": document_id}
+
     results = vectorstore.similarity_search(
         query=query,
-        k = k
+        k=k,
+        filter=search_filter
     )
 
     return results

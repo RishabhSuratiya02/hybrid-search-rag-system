@@ -34,7 +34,7 @@ def format_context(documents):
 
     return context, sources
 
-def run_rag_pipeline(query, chunks, bm25):
+def run_rag_pipeline(query, chunks, bm25, document_id=None):
     
     if not query.strip():
         raise ValueError("Question cannot be empty.")
@@ -46,7 +46,8 @@ def run_rag_pipeline(query, chunks, bm25):
         bm25=bm25,
         dense_k=10,
         sparse_k=10,
-        top_k=10
+        top_k=10,
+        document_id=document_id
     )
 
      # Cross-Encoder Reranking
